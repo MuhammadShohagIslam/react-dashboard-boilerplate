@@ -94,49 +94,45 @@ export const authReducer = createSlice({
             state.loading = true;
         },
         [admin_login.rejected]: (state, { payload }) => {
-            (state.loading = false), (state.errorMessage = payload.error);
+            state.loading = false, 
+            state.errorMessage = payload.error;
         },
         [admin_login.fulfilled]: (state, { payload }) => {
-            (state.loading = false),
-                (state.successMessage = payload.message),
-                (state.token = payload.token),
-                (state.role = returnRole(payload.token));
+            state.loading = false,
+            state.successMessage = payload.message,
+            state.token = payload.token,
+            state.role = returnRole(payload.token);
         },
         [user_register.pending]: (state, _) => {
             state.loading = true;
         },
         [user_register.rejected]: (state, { payload }) => {
-            (state.loading = false), (state.errorMessage = payload.error);
+            state.loading = false,
+            state.errorMessage = payload.error;
         },
         [user_register.fulfilled]: (state, { payload }) => {
-            (state.loading = false),
-                (state.successMessage = payload.message),
-                (state.token = payload.token),
-                (state.role = returnRole(payload.token));
+            state.loading = false,
+            state.successMessage = payload.message,
+            state.token = payload.token,
+            state.role = returnRole(payload.token);
         },
         [user_login.pending]: (state, _) => {
             state.loading = true;
         },
         [user_login.rejected]: (state, { payload }) => {
-            (state.loading = false), (state.errorMessage = payload.error);
+            state.loading = false,
+            state.errorMessage = payload.error;
         },
         [user_login.fulfilled]: (state, { payload }) => {
-            (state.loading = false),
-                (state.successMessage = payload.message),
-                (state.token = payload.token),
-                (state.role = returnRole(payload.token));
-        },
-        [get_user_info.pending]: (state, _) => {
-            state.loading = true;
-        },
-        [get_user_info.rejected]: (state, { payload }) => {
-            (state.loading = false), (state.errorMessage = payload.error);
+            state.loading = false,
+            state.successMessage = payload.message,
+            state.token = payload.token,
+            state.role = returnRole(payload.token);
         },
         [get_user_info.fulfilled]: (state, { payload }) => {
-            (state.loading = false),
-                (state.successMessage = payload.message),
-                (state.token = payload.token),
-                (state.role = returnRole(payload.token));
+            state.loading = false,
+            userInfo=payload.userInfo
+            state.role = payload.userInfo.token;
         },
     },
 });
